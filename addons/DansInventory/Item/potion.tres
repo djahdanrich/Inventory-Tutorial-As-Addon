@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b1xyxuafpsndn"]
+
+[ext_resource type="Script" uid="uid://dtgyb2hxkre4k" path="res://addons/DansInventory/Inventory/ItemData.gd" id="1_5cu85"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5cu85"]
+size = Vector2(32, 32)
+
+[resource]
+script = ExtResource("1_5cu85")
+item_type = "CONSUMABLE"
+name = "Potion"
+description = "yummyummy"
+stackable = true
+max_stack_size = 32
+texture = SubResource("PlaceholderTexture2D_5cu85")
+metadata/_custom_type_script = "uid://dtgyb2hxkre4k"

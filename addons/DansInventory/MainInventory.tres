@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=14 format=3 uid="uid://db1mo4iqgydoi"]
+
+[ext_resource type="Script" uid="uid://byexyhvdwjrav" path="res://addons/DansInventory/Inventory/InventoryData.gd" id="1_eng3p"]
+[ext_resource type="Resource" uid="uid://bdcbn3hy0jxvw" path="res://addons/DansInventory/Item/apple.tres" id="2_5ew54"]
+[ext_resource type="Script" uid="uid://byyeuhmuuakwj" path="res://addons/DansInventory/Inventory/SlotData.gd" id="3_2n6xk"]
+[ext_resource type="Resource" uid="uid://b1xyxuafpsndn" path="res://addons/DansInventory/Item/potion.tres" id="3_heif0"]
+[ext_resource type="Resource" uid="uid://brxtgm1wal21o" path="res://addons/DansInventory/Item/helmet.tres" id="4_gbhuh"]
+[ext_resource type="Resource" uid="uid://cdgsrxs04uyns" path="res://addons/DansInventory/Item/BlueBook.tres" id="4_heif0"]
+[ext_resource type="Resource" uid="uid://cnms18hwbo6j" path="res://addons/DansInventory/Item/rings.tres" id="6_gbhuh"]
+
+[sub_resource type="Resource" id="Resource_bkgy5"]
+script = ExtResource("3_2n6xk")
+item_data = ExtResource("3_heif0")
+quantity = 5
+metadata/_custom_type_script = "uid://byyeuhmuuakwj"
+
+[sub_resource type="Resource" id="Resource_4051f"]
+script = ExtResource("3_2n6xk")
+item_data = ExtResource("4_gbhuh")
+quantity = 1
+metadata/_custom_type_script = "uid://byyeuhmuuakwj"
+
+[sub_resource type="Resource" id="Resource_gbhuh"]
+script = ExtResource("3_2n6xk")
+item_data = ExtResource("2_5ew54")
+quantity = 50
+metadata/_custom_type_script = "uid://byyeuhmuuakwj"
+
+[sub_resource type="Resource" id="Resource_5ew54"]
+script = ExtResource("3_2n6xk")
+item_data = ExtResource("2_5ew54")
+quantity = 20
+metadata/_custom_type_script = "uid://byyeuhmuuakwj"
+
+[sub_resource type="Resource" id="Resource_ptjj8"]
+script = ExtResource("3_2n6xk")
+item_data = ExtResource("6_gbhuh")
+quantity = 5
+metadata/_custom_type_script = "uid://byyeuhmuuakwj"
+
+[sub_resource type="Resource" id="Resource_yofve"]
+script = ExtResource("3_2n6xk")
+item_data = ExtResource("4_heif0")
+quantity = 1
+metadata/_custom_type_script = "uid://byyeuhmuuakwj"
+
+[resource]
+script = ExtResource("1_eng3p")
+inventory_type = "ITEM"
+slot_datas = Array[ExtResource("3_2n6xk")]([SubResource("Resource_bkgy5"), SubResource("Resource_4051f"), SubResource("Resource_gbhuh"), SubResource("Resource_5ew54"), SubResource("Resource_ptjj8"), null, SubResource("Resource_yofve"), null, null, null])
+metadata/_custom_type_script = "uid://byexyhvdwjrav"

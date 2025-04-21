@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://brxtgm1wal21o"]
+
+[ext_resource type="Script" uid="uid://dtgyb2hxkre4k" path="res://addons/DansInventory/Inventory/ItemData.gd" id="1_gjd1w"]
+
+[sub_resource type="Gradient" id="Gradient_gjd1w"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 0, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m5anq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1lfdq"]
+width = 12
+height = 12
+color_ramp = SubResource("Gradient_gjd1w")
+noise = SubResource("FastNoiseLite_m5anq")
+
+[resource]
+script = ExtResource("1_gjd1w")
+item_type = "EQUIP"
+name = "Helmet"
+description = "to protect your last braincell"
+stackable = false
+max_stack_size = 0
+texture = SubResource("NoiseTexture2D_1lfdq")
+metadata/_custom_type_script = "uid://dtgyb2hxkre4k"

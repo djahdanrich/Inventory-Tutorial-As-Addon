@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbsucti04574r"]
+
+[ext_resource type="Script" uid="uid://cgt5jcyquoqs4" path="res://pick_up_button.gd" id="1_nr1lj"]
+[ext_resource type="Resource" uid="uid://bdcbn3hy0jxvw" path="res://addons/DansInventory/Item/apple.tres" id="2_vdkdo"]
+[ext_resource type="Script" uid="uid://byyeuhmuuakwj" path="res://addons/DansInventory/Inventory/SlotData.gd" id="3_srtaw"]
+
+[sub_resource type="Resource" id="Resource_trn2v"]
+script = ExtResource("3_srtaw")
+item_data = ExtResource("2_vdkdo")
+quantity = 1
+metadata/_custom_type_script = "uid://byyeuhmuuakwj"
+
+[node name="PickUpButton" type="Button"]
+text = "this button picks up an item"
+script = ExtResource("1_nr1lj")
+slot_data = SubResource("Resource_trn2v")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

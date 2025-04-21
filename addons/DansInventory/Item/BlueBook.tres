@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cdgsrxs04uyns"]
+
+[ext_resource type="Script" uid="uid://dtgyb2hxkre4k" path="res://addons/DansInventory/Inventory/ItemData.gd" id="1_wygwm"]
+
+[sub_resource type="Gradient" id="Gradient_wygwm"]
+offsets = PackedFloat32Array(0, 0.638554, 0.975904)
+colors = PackedColorArray(0, 0, 0, 1, 0.349398, 0.349398, 0.349398, 1, 1, 0, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bsfi4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v2tot"]
+width = 12
+height = 12
+color_ramp = SubResource("Gradient_wygwm")
+noise = SubResource("FastNoiseLite_bsfi4")
+
+[resource]
+script = ExtResource("1_wygwm")
+item_type = "ITEM"
+name = "Blue Book"
+description = "This is a blue book"
+stackable = false
+max_stack_size = 0
+texture = SubResource("NoiseTexture2D_v2tot")
+metadata/_custom_type_script = "uid://dtgyb2hxkre4k"

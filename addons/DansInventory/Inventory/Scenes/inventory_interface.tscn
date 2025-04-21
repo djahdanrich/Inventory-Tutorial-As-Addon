@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://cd0gvvgff2eyl"]
+
+[ext_resource type="Script" uid="uid://cp7xvyf121xm5" path="res://addons/DansInventory/Inventory/Scenes/inventory_interface.gd" id="1_mllte"]
+[ext_resource type="PackedScene" uid="uid://0ilxb0yfg6h1" path="res://addons/DansInventory/Inventory/Scenes/inventory.tscn" id="2_mbskn"]
+[ext_resource type="PackedScene" uid="uid://cbsucti04574r" path="res://pick_up_button.tscn" id="2_ve52m"]
+[ext_resource type="Resource" uid="uid://db1mo4iqgydoi" path="res://addons/DansInventory/MainInventory.tres" id="3_ve52m"]
+[ext_resource type="PackedScene" uid="uid://c7rb5jscgpsa1" path="res://addons/DansInventory/Inventory/Scenes/slot.tscn" id="4_mbskn"]
+[ext_resource type="Script" uid="uid://byexyhvdwjrav" path="res://addons/DansInventory/Inventory/InventoryData.gd" id="6_8tquo"]
+[ext_resource type="PackedScene" uid="uid://dc5q41hw4cajj" path="res://addons/DansInventory/Inventory/Scenes/hotbar_container.tscn" id="6_xal0n"]
+[ext_resource type="Script" uid="uid://byyeuhmuuakwj" path="res://addons/DansInventory/Inventory/SlotData.gd" id="7_ddqjh"]
+
+[sub_resource type="Resource" id="Resource_r7p1y"]
+script = ExtResource("6_8tquo")
+inventory_type = "EQUIP"
+slot_datas = Array[ExtResource("7_ddqjh")]([null, null])
+metadata/_custom_type_script = "uid://byexyhvdwjrav"
+
+[node name="InventoryInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_mllte")
+pick_up_scene = ExtResource("2_ve52m")
+
+[node name="GrabbedSlot" parent="." instance=ExtResource("4_mbskn")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="InventoryContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="InventoriesContainer" type="HBoxContainer" parent="InventoryContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerInventory" parent="InventoryContainer/MarginContainer/VBoxContainer/InventoriesContainer" instance=ExtResource("2_mbskn")]
+layout_mode = 2
+inventory_name = "Inventory"
+inventory_data = ExtResource("3_ve52m")
+
+[node name="EquipmentInventory" parent="InventoryContainer/MarginContainer/VBoxContainer/InventoriesContainer" instance=ExtResource("2_mbskn")]
+layout_mode = 2
+inventory_name = "Equipment"
+inventory_data = SubResource("Resource_r7p1y")
+
+[node name="ExternalInventory" parent="InventoryContainer/MarginContainer/VBoxContainer/InventoriesContainer" instance=ExtResource("2_mbskn")]
+visible = false
+layout_mode = 2
+inventory_name = "Chest"
+inventory_data = ExtResource("3_ve52m")
+
+[node name="DropSlotButton" type="Button" parent="InventoryContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Drop slot"
+
+[node name="DropSingleSlot" type="Button" parent="InventoryContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Drop single slot"
+
+[node name="ExitButton" type="Button" parent="InventoryContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "exit Inventory"
+
+[node name="HotbarContainer" parent="." instance=ExtResource("6_xal0n")]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
+
+[connection signal="pressed" from="InventoryContainer/MarginContainer/VBoxContainer/DropSlotButton" to="." method="_on_drop_slot_button_pressed"]
+[connection signal="pressed" from="InventoryContainer/MarginContainer/VBoxContainer/DropSingleSlot" to="." method="_on_drop_single_slot_pressed"]
+[connection signal="pressed" from="InventoryContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_button_pressed"]
